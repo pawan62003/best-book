@@ -7,7 +7,7 @@ import {
   Flex,
   Heading,
   Icon,
-  Stack,
+  Stack,SimpleGrid,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -19,6 +19,7 @@ import {
   FcDonate,
   FcManager,
 } from "react-icons/fc";
+// import styleGrid  from "../assets/"
 
 const Card = ({ heading, description, icon, href }) => {
   return (
@@ -62,11 +63,11 @@ export default function KeyFeature() {
       <Flex justify="flex-start" p={4}>
         {" "}
         {/* Adds padding of 4 (16px) to all sides */}
-        <Button colorScheme="facebook" w={"150px"}>
-          Key Feature
-        </Button>
         <Box p={4}>
-          <Stack spacing={4}  textAlign={"left"}>
+          <Stack spacing={4} textAlign={"left"}>
+            <Button colorScheme="facebook" w={"150px"}>
+              Key Feature
+            </Button>
             <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
               Short heading
             </Heading>
@@ -77,8 +78,44 @@ export default function KeyFeature() {
             </Text>
           </Stack>
 
-          <Container maxW={"5xl"} mt={12}>
-            <Flex flexWrap="wrap" gridGap={6} justify="left">
+          <SimpleGrid mt={'15px'} columns={[1,2,3,4]} spacing="40px">
+            <Card
+              heading={"Flexible Grid"}
+              icon={<Icon as={FcAssistant} w={10} h={10} />}
+              description={
+                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+              }
+              href={"#"}
+            />
+            <Card
+              heading={"Style Grid"}
+              icon={<Icon as={FcCollaboration} w={10} h={10} />}
+              description={
+                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+              }
+              href={"#"}
+            />
+            <Card
+              heading={"Spacing"}
+              icon={<Icon as={FcDonate} w={10} h={10} />}
+              description={
+                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+              }
+              href={"#"}
+            />
+            <Card
+            align='left'
+              heading={"Responsive"}
+              icon={<Icon as={FcManager} w={10} h={10} />}
+              description={
+                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+              }
+              href={"#"}
+            />
+          </SimpleGrid>
+          {/* 
+          <Container maxW={"12xl"} mt={12}>
+            <Flex flexWrap="flex" justifyContent="flex-start" alignItems="center" gridGap={6}>
               <Card
                 heading={"Heading"}
                 icon={<Icon as={FcAssistant} w={10} h={10} />}
@@ -111,18 +148,13 @@ export default function KeyFeature() {
                 }
                 href={"#"}
               />
-              <Card
-                heading={"Heading"}
-                icon={<Icon as={FcAbout} w={10} h={10} />}
-                description={
-                  "Lorem ipsum dolor sit amet catetur, adipisicing elit."
-                }
-                href={"#"}
-              />
+              
             </Flex>
-          </Container>
+          </Container> */}
         </Box>
       </Flex>
+
+
     </>
   );
 }
